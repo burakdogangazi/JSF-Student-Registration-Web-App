@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf16499275536650" configfile="/LTHCrudEmbedableFK/WebContent/WEB-INF/faces-config.xml">
+  <nodes xsi:type="pageflow:PFPage" name="Error.xhtml" x="576" y="72" id="pf16499278664641" referenceLink="//@navigationRule.3/@fromViewId|" outlinks="pf164992909011413" inlinks="pf16499285640879" path="/Error.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Main.xhtml" x="684" y="324" id="pf16499278664644" referenceLink="//@navigationRule.2/@fromViewId|" outlinks="pf164992856408710" inlinks="pf164992856408711" path="/Main.xhtml"/>
+  <nodes xsi:type="pageflow:PFPage" name="Login.xhtml" x="300" y="264" id="pf16499278664657" referenceLink="//@navigationRule.3/@navigationCase.0/@toViewId|" outlinks="pf164992856408711 pf16499285640879" inlinks="pf164992856408710 pf164992909011413" path="/Login.xhtml"/>
+  <links id="pf164992856408711" target="pf16499278664644" source="pf16499278664657" outcome="dogru"/>
+  <links id="pf16499285640879" target="pf16499278664641" source="pf16499278664657" outcome="yanlis"/>
+  <links id="pf164992856408710" target="pf16499278664657" source="pf16499278664644" outcome="geri"/>
+  <links id="pf164992909011413" target="pf16499278664657" source="pf16499278664641" outcome="geri"/>
+</pageflow:Pageflow>

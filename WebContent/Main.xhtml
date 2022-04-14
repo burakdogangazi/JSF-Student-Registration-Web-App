@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head></h:head>
+<body>
+	<f:view>
+		<h:form>
+			<h:panelGrid columns="2">
+					Ad:<h:inputText value="#{demoView.demo.ad}" />
+					Soyad:<h:inputText value="#{demoView.demo.soyad}" />
+					Yas:<h:inputText value="#{demoView.demo.yas}" />
+					Cinsiyet<h:selectOneRadio value="#{demoView.demo.cinsiyet}">
+					<f:selectItem itemLabel="BAY" itemValue="BAY" />
+					<f:selectItem itemLabel="BAYAN" itemValue="BAYAN" />
+				</h:selectOneRadio>
+
+				<!-- Embed -->
+					TcKimlik:<h:inputText value="#{demoView.demo.demoEmbed.tcNo}" />
+					Telefon:<h:inputText value="#{demoView.demo.demoEmbed.telefon}" />
+
+				<!-- FK -->
+					İl:<h:inputText value="#{demoView.demo.demoFK.il}" />
+					İlce:<h:inputText value="#{demoView.demo.demoFK.ilce}" />
+
+
+				<h:commandButton action="#{demoView.kaydet()}" value="Kaydet"
+					rendered="#{demoView.demo.ad==null}" />
+				<h:commandButton action="#{demoView.guncelle()}" value="Guncelle"
+					rendered="#{demoView.demo.ad!=null}" />
+
+				<h:commandButton action="geri" value="Geri" />
+
+			</h:panelGrid>
+
+			<p:dataTable value="#{demoView.kayitListe}" var="cls">
+				<f:facet name="header">Kayit Listesi</f:facet>
+				<f:facet name="footer">Kayit Listesi Son</f:facet>
+
+				<p:column>
+					<f:facet name="header">Sec</f:facet>
+					<h:commandLink value="Sec">
+						<f:setPropertyActionListener value="#{cls}"
+							target="#{demoView.demo}" />
+					</h:commandLink>
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">Sil</f:facet>
+					<h:commandLink action="#{demoView.sil()}" value="Sil">
+						<f:setPropertyActionListener value="#{cls}"
+							target="#{demoView.demo}" />
+					</h:commandLink>
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">Ad</f:facet>
+					<h:outputText value="#{cls.ad}" />
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">Soyad</f:facet>
+					<h:outputText value="#{cls.soyad}" />
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">Yas</f:facet>
+					<h:outputText value="#{cls.yas}" />
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">Cinsiyet</f:facet>
+					<h:outputText value="#{cls.cinsiyet}" />
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">TCKN</f:facet>
+					<h:outputText value="#{cls.demoEmbed.tcNo}" />
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">Telefon</f:facet>
+					<h:outputText value="#{cls.demoEmbed.telefon}" />
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">İl</f:facet>
+					<h:outputText value="#{cls.demoFK.il}" />
+				</p:column>
+
+				<p:column>
+					<f:facet name="header">İlce</f:facet>
+					<h:outputText value="#{cls.demoFK.ilce}" />
+				</p:column>
+
+			</p:dataTable>
+		</h:form>
+	</f:view>
+</body>
+</html>
